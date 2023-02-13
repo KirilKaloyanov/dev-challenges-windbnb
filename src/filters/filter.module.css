@@ -1,0 +1,19 @@
+.container {
+    border: 1px solid red;
+    position: absolute;
+    top: 5rem;
+}
+
+@media screen and (min-width: 800px) {
+    .container {
+        top: 2rem;
+        right: 5rem;
+    }
+}
+
+.expandedFilter {
+    top: 0;
+    right: 0;
+    height: 10rem;
+    width: 100%;
+}

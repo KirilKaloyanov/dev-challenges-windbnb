@@ -1,0 +1,13 @@
+.main {
+    background-color: white;
+}
+
+.expandedFilterItem {
+    border-bottom: 1px solid lightgrey;
+}
+
+@media screen and (min-width: 800px) {
+    .expandedFilterItem {
+        border-bottom: 0;
+    }
+}

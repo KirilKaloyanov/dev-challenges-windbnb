@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Location from "./location/location.js";
 import Guests from "./guests/guests.js";
+import LocationValues from './location/locationValues.js';
+import GuestsValues from './guests/guestsValues.js';
 import styles from "./filter.module.css";
 
 export default function Filter() {
@@ -10,16 +12,27 @@ export default function Filter() {
   return (
     <>
       <div
-        className={`${styles.container} ${expanded && styles.expandedFilter}`}
+        className={`${styles.container} ${expanded && styles.expandedContainer}`}
         onClick={() => setExpanded(true)}
       >
-        <div className={styles.grid}>
-            <Location 
-                expanded={expanded} 
-                onSelect={() => setActiveFilter('location')}
+        <div className={`${styles.grid} ${expanded && styles.expandedGrid}`}>
+            <div class={`${styles.filters} ${expanded && styles.expandedFilters}`}>
+                <Location
+                    expanded={expanded}
+                    onSelect={() => setActiveFilter('location')}
+                    />
+                <Guests
+                    expanded={expanded}
+                    onSelect={() => setActiveFilter('guests')}
+                />
+            </div>
+            <LocationValues
+                activeFilter={activeFilter}
+             />
+            <GuestsValues
+                activeFilter={activeFilter}
             />
-            <Guests expanded={expanded} />
-            <button>S</button>
+            <div className={styles.searchButton}>S</div>
         </div>
       </div>
       <div

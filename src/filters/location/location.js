@@ -1,6 +1,6 @@
 import styles from './location.module.css';
 
-export default function Location({expanded, activeFilter, onSelect}) {
+export default function Location({expanded, onSelect}) {
     return (
         <div 
             onClick={onSelect} 

@@ -9,6 +9,8 @@ export default function Filter() {
   const [expanded, setExpanded] = useState(false);
   const [activeFilter, setActiveFilter] = useState('');
 
+  console.log(activeFilter);
+
   return (
     <>
       <div
@@ -16,7 +18,7 @@ export default function Filter() {
         onClick={() => setExpanded(true)}
       >
         <div className={`${styles.grid} ${expanded && styles.expandedGrid}`}>
-            <div class={`${styles.filters} ${expanded && styles.expandedFilters}`}>
+            <div className={`${styles.filters} ${expanded && styles.expandedFilters}`}>
                 <Location
                     expanded={expanded}
                     onSelect={() => setActiveFilter('location')}
@@ -27,9 +29,11 @@ export default function Filter() {
                 />
             </div>
             <LocationValues
+                expanded={expanded}
                 activeFilter={activeFilter}
              />
             <GuestsValues
+                expanded={expanded}
                 activeFilter={activeFilter}
             />
             <div className={styles.searchButton}>S</div>

@@ -5,3 +5,13 @@
 .visible {
     display: block;
 }
+
+
+@media screen and (min-width: 800px) {
+    /* .hidden {
+        display: block;
+    } */
+    .invisible {
+        visibility: hidden;
+    }
+}

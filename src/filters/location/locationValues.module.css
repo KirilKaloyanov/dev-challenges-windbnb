@@ -1,7 +1,16 @@
-.hidden {
+.notDisplayed {
     display: none;
 }
 
-.visible {
+.displayed {
     display: block;
+}
+
+@media screen and (min-width: 800px) {
+    .visible {
+        visibility: visible;
+    }
+    .hidden {
+        visibility: hidden;
+    }
 }

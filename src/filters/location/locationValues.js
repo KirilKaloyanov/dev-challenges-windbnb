@@ -1,8 +1,16 @@
 import styles from "./locationValues.module.css";
 
-export default function LocationValues({expanded, activeFilter}) {
+export default function LocationValues({ expanded, activeFilter }) {
   return (
-    <div className={expanded && activeFilter === "location" ? styles.visible : `${styles.hidden} ${styles.invisible}`}>
+    <div
+      className={`${expanded ? styles.visible : styles.hidden}
+         ${
+           expanded && activeFilter === "location"
+             ? styles.visible
+             : styles.hidden
+         }
+         ${expanded ? '' : styles.fucked}`}
+    >
       hi location
     </div>
   );

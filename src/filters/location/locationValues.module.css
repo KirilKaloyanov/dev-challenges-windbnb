@@ -1,9 +1,9 @@
-.notDisplayed {
-    display: none;
+.visible {
+    display: block;
 }
 
-.displayed {
-    display: block;
+.hidden {
+    display: none;
 }
 
 @media screen and (min-width: 800px) {
@@ -11,6 +11,10 @@
         visibility: visible;
     }
     .hidden {
+        display: block;
         visibility: hidden;
+    }
+    .fucked {
+        display: none;
     }
 }

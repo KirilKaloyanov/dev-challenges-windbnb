@@ -10,11 +10,13 @@
     .visible {
         visibility: visible;
     }
+    
     .hidden {
         display: block;
         visibility: hidden;
     }
-    .fucked {
+
+    .notDisplayed {
         display: none;
     }
 }

@@ -6,7 +6,7 @@ export default function Location({expanded, onSelect}) {
             onClick={onSelect} 
             className={`${styles.main} ${expanded && styles.expandedFilterItem}`}
         >
-        <div>location</div>
+        <div>Add location</div>
         </div>
     );
 }

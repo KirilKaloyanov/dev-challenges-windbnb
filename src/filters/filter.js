@@ -36,7 +36,7 @@ export default function Filter() {
                 expanded={expanded}
                 activeFilter={activeFilter}
             />
-            <div className={styles.searchButton}>S</div>
+            <span className={styles.searchButton}>Search</span>
         </div>
       </div>
       <div

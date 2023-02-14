@@ -3,7 +3,7 @@ import styles from "./guestsValues.module.css";
 export default function GuestsValues({ expanded, activeFilter }) {
   return (
     <div
-      className={`
+      className={`${styles.main} 
             ${
               expanded && activeFilter === "guests"
                 ? styles.visible

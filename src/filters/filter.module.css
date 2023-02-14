@@ -13,10 +13,12 @@
 }
 
 .expandedContainer {
+    padding: 1rem;
     top: 0;
     right: 0;
-    height: 10rem;
-    width: 100%;
+    left: 0;
+    height: max-content;
+    width: calc(100% - 2rem);
 }
 
 .grid {
@@ -25,14 +27,13 @@
     grid-template-rows: 1fr;
     border-radius: 1rem;
     overflow: hidden;
-    gap: 1px;
-    background-color: lightgray;
     box-shadow: 0 0 5px lightgray;
 }
 
 .expandedGrid {
+    padding: 1rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 1.5fr 1.5fr 1fr 1fr;
+    grid-template-rows: 1.5fr 1.5fr 4fr 1fr;
     border-radius: 0;
     background-color: white;
     box-shadow: 0 0 0;
@@ -41,10 +42,10 @@
 @media screen and (min-width:800px) {
     .expandedGrid {
         grid-template-columns: 1.5fr 1.5fr 1fr;
-        grid-template-rows: 1fr;
-        background-color: lightgray;
+        grid-template-rows: 2fr 5fr;
+
         border-radius: 1rem;
-        box-shadow: 0 0 5px lightgray;
+        box-shadow: 0 0 0;
     }
 }
 
@@ -53,7 +54,7 @@
     grid-template-columns: 1fr 1fr;
     grid-column: 1 / span 2;
     grid-template-rows: 1fr;
-    gap: 1px;
+
 }
 
 .expandedFilters {
@@ -68,17 +69,27 @@
 
 @media screen and (min-width:800px) {
     .expandedFilters {
+        border-radius: 0;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
         grid-template-columns: 1fr 1fr;
         grid-column: 1 / span 2;
         grid-row: 1 / span 1;
         grid-template-rows: 1fr;
-        border-radius: 0;
     }
 }
 
 .searchButton {
-    order: 3;
     background-color: white;
+    padding: 1rem;
+}
+
+@media screen and (min-width: 800px) {
+    .searchButton {
+        box-shadow: 1px 0 5px lightgray;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
 }
 
 .background {

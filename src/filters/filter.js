@@ -7,7 +7,7 @@ import styles from "./filter.module.css";
 
 export default function Filter() {
   const [expanded, setExpanded] = useState(false);
-  const [activeFilter, setActiveFilter] = useState('');
+  const [activeFilter, setActiveFilter] = useState('location');
 
   console.log(activeFilter);
 

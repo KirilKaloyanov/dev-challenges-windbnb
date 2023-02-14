@@ -1,3 +1,8 @@
+:root {
+  --red: hsla(0, 79%, 63%, 0.9);
+  --grey20: hsla(0, 0%, 20%, 1);
+}
+
 html {
   font-size: 62.5%;
 }

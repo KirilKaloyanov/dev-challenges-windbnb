@@ -13,9 +13,25 @@
 }
 
 @media screen and (min-width: 800px) {
-    
+    .main {
+        padding: 0;
+    }
+
     .expandedFilterItem {
         border-right: 1px solid lightgrey;
         border-bottom: 0;
     }
+
+    .containerActive {
+        padding: 1rem;
+        border: 1px solid var(--grey20);
+        border-radius: 1rem;
+    }
+
+    .container {
+        border: 1px solid white;
+        border-radius: 1rem;
+        padding: 1rem;
+    }
+
 }

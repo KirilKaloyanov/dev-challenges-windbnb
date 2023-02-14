@@ -1,46 +1,54 @@
 import { useState } from "react";
 import Location from "./location/location.js";
 import Guests from "./guests/guests.js";
-import LocationValues from './location/locationValues.js';
-import GuestsValues from './guests/guestsValues.js';
-import styles from "./filter.module.css";
+import LocationValues from "./location/locationValues.js";
+import GuestsValues from "./guests/guestsValues.js";
+import css from "./filter.module.css";
 
 export default function Filter() {
   const [expanded, setExpanded] = useState(false);
-  const [activeFilter, setActiveFilter] = useState('location');
+  const [activeFilter, setActiveFilter] = useState("location");
 
   console.log(activeFilter);
 
   return (
     <>
       <div
-        className={`${styles.container} ${expanded && styles.expandedContainer}`}
+        className={`${css.container} ${expanded && css.expandedContainer}`}
         onClick={() => setExpanded(true)}
       >
-        <div className={`${styles.grid} ${expanded && styles.expandedGrid}`}>
-            <div className={`${styles.filters} ${expanded && styles.expandedFilters}`}>
-                <Location
-                    expanded={expanded}
-                    onSelect={() => setActiveFilter('location')}
-                    />
-                <Guests
-                    expanded={expanded}
-                    onSelect={() => setActiveFilter('guests')}
-                />
-            </div>
-            <LocationValues
-                expanded={expanded}
-                activeFilter={activeFilter}
-             />
-            <GuestsValues
-                expanded={expanded}
-                activeFilter={activeFilter}
+        <div className={`${css.grid} ${expanded && css.expandedGrid}`}>
+          <div className={`${css.filters} ${expanded && css.expandedFilters}`}>
+            <Location
+              expanded={expanded}
+              activeFilter={activeFilter}  
+              onSelect={() => setActiveFilter("location")}
             />
-            <span className={styles.searchButton}>Search</span>
+            <Guests
+              expanded={expanded}
+              activeFilter={activeFilter}  
+              onSelect={() => setActiveFilter("guests")}
+            />
+          </div>
+          <LocationValues expanded={expanded} activeFilter={activeFilter} />
+          <GuestsValues expanded={expanded} activeFilter={activeFilter} />
+          <span className={css.searchField}>
+            {expanded && (
+              <div className={css.searchButton}>
+                <span className="material-symbols-rounded">search</span>
+                <span>Search</span>
+              </div>
+            )}
+            {!expanded && (
+              <div className={css.search}>
+                <span className={`material-symbols-rounded ${css.searchIcon}`}>search</span>
+              </div>
+            )}
+          </span>
         </div>
       </div>
       <div
-        className={`${styles.background} ${expanded && styles.expandedBackground}`}
+        className={`${css.background} ${expanded && css.expandedBackground}`}
         onClick={() => setExpanded(false)}
       ></div>
     </>

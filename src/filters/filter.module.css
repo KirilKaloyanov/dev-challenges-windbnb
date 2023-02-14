@@ -3,6 +3,8 @@
     position: absolute;
     top: 5rem;
     background-color: white;
+    font-family: 'Mulish', sans-serif;
+    font-size: 1.4rem;
 }
 
 @media screen and (min-width: 800px) {
@@ -79,17 +81,42 @@
     }
 }
 
-.searchButton {
+.searchField {
     background-color: white;
-    padding: 1rem;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (min-width: 800px) {
-    .searchButton {
+    .searchField {
         box-shadow: 1px 0 5px lightgray;
         border-top-right-radius: 1rem;
         border-bottom-right-radius: 1rem;
     }
+}
+
+.searchButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 4.4rem;
+    color: white;
+    background-color: var(--red);
+    border-radius: 1rem;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.searchIcon {
+    color: var(--red);
+    font-size: 1.8rem;
+    font-weight: 900;
 }
 
 .background {

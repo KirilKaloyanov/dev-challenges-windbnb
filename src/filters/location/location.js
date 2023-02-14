@@ -1,13 +1,15 @@
-import styles from './location.module.css';
+import css from './location.module.css';
 
-export default function Location({expanded, onSelect}) {
+export default function Location({expanded, activeFilter, onSelect}) {
     return (
         <div 
             onClick={onSelect} 
-            className={`${styles.main} ${expanded && styles.expandedFilterItem}`}
+            className={`${css.main} ${expanded && css.expandedFilterItem}`}
         >
-        {expanded && <div>Location</div>}
-        <div>Add location</div>
+            <div class={expanded && activeFilter === 'location' ? css.containerActive : css.container}>
+                {expanded && <div>Location</div>}
+                <div>Add location</div>
+            </div>
         </div>
     );
 }

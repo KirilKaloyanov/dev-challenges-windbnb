@@ -1,0 +1,26 @@
+.container {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.imageContainer {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vw;
+    border-radius: 2rem;
+}
+
+.image {
+    width: 130%;
+}
+
+.superHost {
+    text-transform: uppercase;
+    border: 1px solid var(--grey20);
+    padding: 1rem;
+}
+
+.red {
+    color: var(--red);
+}

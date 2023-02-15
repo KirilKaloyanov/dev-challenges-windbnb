@@ -1,28 +1,46 @@
 import React, { useState, useEffect } from "react";
 import Filter from "./filters/filter.js";
+import Card from './Card.js';
 import logo from "./img/logo.png";
 import "./App.css";
 
 function App() {
   const [data, setData] = useState([]);
   const [guests, setGuests] = useState(0);
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState(null);
   const [locationsList, setLocationsList] = useState([]);
 
   function getData() {
     fetch("stays.json")
       .then((data) => data.json())
       .then((response) => {
-        setData(response.map((item, i) => ({ id: i, ...item })));
-        setLocationsList(response
-          .map((item, i) => ({ id: i, city: item.city, country: item.country }))
-          .filter((b, i, arr) => i === arr.findIndex((c) => c.city === b.city)))
+        setData(assignIds(response));
+        setLocationsList(filterLocations(response))
       });
+  }
+
+  function assignIds(arr) {
+    return arr.map((item, index) => ({ id: index, ...item}))
+  }
+
+  function filterLocations(arr) {
+    return arr
+    .map((item, i) => ({ id: i, city: item.city, country: item.country }))
+    .filter((b, i, arr) => i === arr.findIndex((c) => c.city === b.city))
   }
 
   useEffect(() => {
     getData();
   }, []);
+
+  function filterByLocation(item) {
+    if (!location) return true;
+    else return item.city === location.city
+  }
+
+  function filterByCapacity(item) {
+    return item.maxGuests - guests >=0;
+  }
 
   return (
     <>
@@ -33,13 +51,14 @@ function App() {
         onGuestsChange={setGuests}
         onLocationChange={setLocation}
       />
-      <img src={logo} alt="Windbnb logo" />
-      {data
-        .filter(a => a.city === location.city)
-        .filter((a) => a.maxGuests - guests >= 0)
-        .map((a) => (
-          <div key={a.id}>{a.maxGuests} {a.city}</div>
-        ))}
+      <img className='logo' src={logo} alt="Windbnb logo" />
+      <h2 className="heading">Stays in Finland</h2>
+      <div className='grid'>
+        {data
+          .filter(filterByLocation)
+          .filter(filterByCapacity)
+          .map((a) => <Card key={a.id} item={a} />)}
+      </div>
     </>
   );
 }

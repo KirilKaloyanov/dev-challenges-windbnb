@@ -27,7 +27,7 @@ export default function Filter({ onGuestsChange, guests }) {
               expanded={expanded}
               activeFilter={activeFilter}  
               onSelect={() => setActiveFilter("guests")}
-              guests={guests} //total 
+              guests={guests} 
               />
           </div>
           <LocationValues expanded={expanded} activeFilter={activeFilter} />

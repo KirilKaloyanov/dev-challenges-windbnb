@@ -1,8 +1,19 @@
+import { useState } from "react";
 import styles from "./guestsValues.module.css";
 
-export default function GuestsValues({ expanded, activeFilter, onGuestsChange, guests }) {
+export default function GuestsValues({ expanded, activeFilter, onGuestsChange }) {
 
- console.log(guests);
+    const [guests, setGuests] = useState( { adults: 0, children: 0 } );
+
+    function changeGuests(command, guest) {
+        const newValue = Object.assign({}, guests);
+        if (command === 'add') newValue[guest]++;
+        if (command === 'remove' && newValue[guest] > 0) newValue[guest]--;
+        setGuests(newValue);
+        console.log(newValue);
+        onGuestsChange(newValue.adults + newValue.children);
+    }
+
     return (
     <div
       className={`${styles.main} 
@@ -14,7 +25,11 @@ export default function GuestsValues({ expanded, activeFilter, onGuestsChange, g
             ${expanded ? "" : styles.notDisplayed}
          `}
     >
-      <button onClick={() => onGuestsChange(1)}>Add</button>
+        
+      <button onClick={() => changeGuests('add', 'adults')}>Add adult</button>
+      <button onClick={() => changeGuests('remove', 'adults')}>Remove adult</button>
+      <button onClick={() => changeGuests('add', 'children')}>Add child</button>
+      <button onClick={() => changeGuests('remove', 'children')}>Remove child</button>
       
     </div>
   );

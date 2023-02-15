@@ -35,7 +35,7 @@ function App() {
       />
       <img src={logo} alt="Windbnb logo" />
       {data
-        .filter(a => a.city === location)
+        .filter(a => a.city === location.city)
         .filter((a) => a.maxGuests - guests >= 0)
         .map((a) => (
           <div key={a.id}>{a.maxGuests} {a.city}</div>

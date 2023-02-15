@@ -20,7 +20,7 @@ export default function LocationValues({
           <div
             key={l.id}
             className={css.locationItem}
-            onClick={() => onLocationChange(l.city)}
+            onClick={() => onLocationChange(l)}
           >
             <span className="material-symbols-rounded">location_on</span>
             {`${l.city}, ${l.country}`}

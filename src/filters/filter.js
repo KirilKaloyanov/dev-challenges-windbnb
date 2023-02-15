@@ -50,7 +50,11 @@ export default function Filter({
           />
           <span className={css.searchField}>
             {expanded && (
-              <div className={css.searchButton}>
+              <div className={css.searchButton} onClick={(e) => {
+                  e.stopPropagation();
+                  setExpanded(false)
+                }
+              }>
                 <span className="material-symbols-rounded">search</span>
                 <span>Search</span>
               </div>

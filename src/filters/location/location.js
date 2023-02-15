@@ -6,7 +6,7 @@ export default function Location({expanded, activeFilter, onSelect}) {
             onClick={onSelect} 
             className={`${css.main} ${expanded && css.expandedFilterItem}`}
         >
-            <div class={expanded && activeFilter === 'location' ? css.containerActive : css.container}>
+            <div className={expanded && activeFilter === 'location' ? css.containerActive : css.container}>
                 {expanded && <div>Location</div>}
                 <div>Add location</div>
             </div>

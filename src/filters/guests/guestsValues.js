@@ -1,7 +1,9 @@
 import styles from "./guestsValues.module.css";
 
-export default function GuestsValues({ expanded, activeFilter }) {
-  return (
+export default function GuestsValues({ expanded, activeFilter, onGuestsChange, guests }) {
+
+ console.log(guests);
+    return (
     <div
       className={`${styles.main} 
             ${
@@ -12,7 +14,8 @@ export default function GuestsValues({ expanded, activeFilter }) {
             ${expanded ? "" : styles.notDisplayed}
          `}
     >
-      hi guest
+      <button onClick={() => onGuestsChange(1)}>Add</button>
+      
     </div>
   );
 }

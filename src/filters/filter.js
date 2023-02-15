@@ -5,11 +5,10 @@ import LocationValues from "./location/locationValues.js";
 import GuestsValues from "./guests/guestsValues.js";
 import css from "./filter.module.css";
 
-export default function Filter() {
+export default function Filter({ onGuestsChange, guests }) {
   const [expanded, setExpanded] = useState(false);
   const [activeFilter, setActiveFilter] = useState("location");
 
-  console.log(activeFilter);
 
   return (
     <>
@@ -28,10 +27,16 @@ export default function Filter() {
               expanded={expanded}
               activeFilter={activeFilter}  
               onSelect={() => setActiveFilter("guests")}
-            />
+              guests={guests} //total 
+              />
           </div>
           <LocationValues expanded={expanded} activeFilter={activeFilter} />
-          <GuestsValues expanded={expanded} activeFilter={activeFilter} />
+          <GuestsValues 
+            expanded={expanded} 
+            activeFilter={activeFilter} 
+            guests={guests}
+            onGuestsChange={onGuestsChange}
+          />
           <span className={css.searchField}>
             {expanded && (
               <div className={css.searchButton}>

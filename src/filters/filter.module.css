@@ -15,6 +15,7 @@
 }
 
 .expandedContainer {
+    cursor: default;
     padding: 1rem;
     top: 0;
     right: 0;
@@ -29,7 +30,7 @@
     grid-template-rows: 1fr;
     border-radius: 1rem;
     overflow: hidden;
-    box-shadow: 0 0 5px lightgray;
+    box-shadow: 0 0 5px var(--grey01);
 }
 
 .expandedGrid {
@@ -52,6 +53,7 @@
 }
 
 .filters {
+    cursor: pointer;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column: 1 / span 2;
@@ -66,7 +68,7 @@
     grid-column: 1 / span 1;
     border-radius: 1rem;
     overflow: hidden;
-    box-shadow: 0 0 5px lightgray;
+    box-shadow: 0 0 5px var(--grey01);
 }
 
 @media screen and (min-width:800px) {
@@ -82,6 +84,7 @@
 }
 
 .searchField {
+    cursor: pointer;
     background-color: white;
     padding: 0 1rem;
     display: flex;
@@ -91,7 +94,7 @@
 
 @media screen and (min-width: 800px) {
     .searchField {
-        box-shadow: 1px 0 5px lightgray;
+        box-shadow: 1px 0 5px var(--grey01);
         border-top-right-radius: 1rem;
         border-bottom-right-radius: 1rem;
     }

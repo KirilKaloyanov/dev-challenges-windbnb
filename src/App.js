@@ -5,6 +5,16 @@ import "./App.css";
 
 function App() {
   const [data, setData] = useState([]);
+  const [guests, setGuests] = useState(0);
+
+
+  function handleGuestsChange(obj) {
+    let newValue = guests;
+    newValue += obj;
+    setGuests(newValue);
+    console.log(obj);
+  }
+
 
   function getData() {
     fetch("stays.json")
@@ -17,8 +27,12 @@ function App() {
   }, []);
   return (
     <>
-      <Filter />
+      <Filter 
+        guests={guests}
+        onGuestsChange={handleGuestsChange}
+      />
       <img src={logo} alt="Windbnb logo" />
+      {/* <button onClick={() => onGuestsChange({adults: 1, children: 0})}>Calc</button> */}
     </>
   );
 }

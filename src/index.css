@@ -2,6 +2,7 @@
   --red: hsla(0, 79%, 63%, 0.9);
   --grey20: hsla(0, 0%, 20%, 1);
   --grey01: hsla(0, 0%, 0%, 0.1);
+  --grey74: hsla(0, 0%, 74%, 1);
 }
 
 html {
@@ -23,6 +24,7 @@ body {
     margin: 0 auto;
   }
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

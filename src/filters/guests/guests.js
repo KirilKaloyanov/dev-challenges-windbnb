@@ -16,9 +16,9 @@ export default function Guests({ onSelect, activeFilter, expanded, guests }) {
             : css.container
         }
       >
-        {expanded && <div>Guests</div>}
-        {guests <= 0 && <div>Add guests</div>}
-        {guests > 0 && <div>{guests} guests</div>}
+        {expanded && <div className={css.uppercase}>Guests</div>}
+        {guests <= 0 && <div className={css.placeholder}>Add guests</div>}
+        {guests > 0 && <div>{guests} guest{guests > 1 && 's'}</div>}
       </div>
     </div>
   );

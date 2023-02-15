@@ -7,8 +7,8 @@ export default function Location({expanded, activeFilter, onSelect}) {
             className={`${css.main} ${expanded && css.expandedFilterItem}`}
         >
             <div className={expanded && activeFilter === 'location' ? css.containerActive : css.container}>
-                {expanded && <div>Location</div>}
-                <div>Add location</div>
+                {expanded && <div className={css.uppercase}>Location</div>}
+                <div className={css.placeholder}>Add location</div>
             </div>
         </div>
     );

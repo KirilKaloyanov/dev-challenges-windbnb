@@ -2,15 +2,22 @@
     cursor: pointer;
     position: absolute;
     top: 5rem;
+    margin: auto;
+    right: 0;
+    left: 0;
+    max-width: 30rem;
     background-color: white;
     font-family: 'Mulish', sans-serif;
+    font-weight: 400;
     font-size: 1.4rem;
+    color: var(--grey20);
 }
 
 @media screen and (min-width: 800px) {
     .container {
         top: 2rem;
         right: 5rem;
+        left: initial;
     }
 }
 
@@ -22,11 +29,12 @@
     left: 0;
     height: max-content;
     width: calc(100% - 2rem);
+    max-width: 100%;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: 1.5fr 1.5fr 1fr;
+    grid-template-columns: 1.5fr 1.5fr 0.5fr;
     grid-template-rows: 1fr;
     border-radius: 1rem;
     overflow: hidden;

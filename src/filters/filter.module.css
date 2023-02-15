@@ -44,7 +44,7 @@
 .expandedGrid {
     padding: 1rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 1.5fr 1.5fr 4fr 1fr;
+    grid-template-rows: 1fr 1fr 4fr 1fr;
     border-radius: 0;
     background-color: white;
     box-shadow: 0 0 0;
@@ -53,8 +53,7 @@
 @media screen and (min-width:800px) {
     .expandedGrid {
         grid-template-columns: 1.5fr 1.5fr 1fr;
-        grid-template-rows: 2fr 5fr;
-
+        grid-template-rows: 1fr 5fr;
         border-radius: 1rem;
         box-shadow: 0 0 0;
     }

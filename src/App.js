@@ -7,6 +7,9 @@ function App() {
   const [data, setData] = useState([]);
   const [guests, setGuests] = useState(0);
 
+  console.log(guests);
+
+
   function getData() {
     fetch("stays.json")
       .then((data) => data.json())

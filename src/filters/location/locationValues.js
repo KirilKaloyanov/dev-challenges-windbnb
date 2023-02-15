@@ -9,7 +9,7 @@ export default function LocationValues({ expanded, activeFilter }) {
                 ? styles.visible
                 : styles.hidden
             }
-            ${expanded ? "" : styles.notDisplayed}
+            ${expanded ? "" : styles.notExpanded}
          `}
     >
       hi location

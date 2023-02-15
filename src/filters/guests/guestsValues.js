@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./guestsValues.module.css";
+import css from "./guestsValues.module.css";
 
 export default function GuestsValues({ expanded, activeFilter, onGuestsChange }) {
 
@@ -10,26 +10,50 @@ export default function GuestsValues({ expanded, activeFilter, onGuestsChange })
         if (command === 'add') newValue[guest]++;
         if (command === 'remove' && newValue[guest] > 0) newValue[guest]--;
         setGuests(newValue);
-        console.log(newValue);
         onGuestsChange(newValue.adults + newValue.children);
     }
 
     return (
     <div
-      className={`${styles.main} 
+      className={`${css.main} 
             ${
               expanded && activeFilter === "guests"
-                ? styles.visible
-                : styles.hidden
+                ? css.visible
+                : css.hidden
             }
-            ${expanded ? "" : styles.notDisplayed}
+            ${expanded ? "" : css.notExpanded}
          `}
     >
-        
-      <button onClick={() => changeGuests('add', 'adults')}>Add adult</button>
-      <button onClick={() => changeGuests('remove', 'adults')}>Remove adult</button>
-      <button onClick={() => changeGuests('add', 'children')}>Add child</button>
-      <button onClick={() => changeGuests('remove', 'children')}>Remove child</button>
+        <div className={css.counter}>
+            <div className={css.label}>Adults</div>
+            <div className={css.ages}>Ages 13 and above</div>
+            <div className={css.values}>
+                <span 
+                    onClick={() => changeGuests('remove', 'adults')}
+                    className={css.button}
+                >-</span>
+                <span className={css.count}>{guests.adults}</span>
+                <span 
+                    onClick={() => changeGuests('add', 'adults')}
+                    className={css.button}
+                >+</span>
+            </div>
+        </div>
+        <div className={css.counter}>
+            <div className={css.label}>Children</div>
+            <div className={css.ages}>Ages 2 - 12</div>
+            <div className={css.values}>
+                <span 
+                    onClick={() => changeGuests('remove', 'children')}
+                    className={css.button}
+                >-</span>
+                <span className={css.count}>{guests.children}</span>
+                <span 
+                    onClick={() => changeGuests('add', 'children')}
+                    className={css.button}
+                >+</span>
+            </div>
+        </div>
       
     </div>
   );

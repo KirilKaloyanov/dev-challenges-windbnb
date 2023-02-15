@@ -13,16 +13,12 @@
 }
 
 @media screen and (min-width: 800px) {
-    .visible {
-        visibility: visible;
-    }
-    
     .hidden {
         display: block;
         visibility: hidden;
     }
 
-    .notDisplayed {
+    .notExpanded {
         display: none;
     }
 }

@@ -6,7 +6,7 @@ export default function GuestsValues({ expanded, activeFilter, onGuestsChange })
     const [guests, setGuests] = useState( { adults: 0, children: 0 } );
 
     function changeGuests(command, guest) {
-        const newValue = Object.assign({}, guests);
+        const newValue = {...guests};
         if (command === 'add') newValue[guest]++;
         if (command === 'remove' && newValue[guest] > 0) newValue[guest]--;
         setGuests(newValue);

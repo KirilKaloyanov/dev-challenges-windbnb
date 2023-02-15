@@ -1,18 +1,32 @@
-import styles from "./locationValues.module.css";
+import css from "./locationValues.module.css";
 
-export default function LocationValues({ expanded, activeFilter }) {
+export default function LocationValues({
+  expanded,
+  activeFilter,
+  locationsList,
+  onLocationChange,
+}) {
   return (
     <div
-      className={`${styles.main} 
+      className={`${css.main} 
             ${
-              expanded && activeFilter === "location"
-                ? styles.visible
-                : styles.hidden
+              expanded && activeFilter === "location" ? css.visible : css.hidden
             }
-            ${expanded ? "" : styles.notExpanded}
+            ${expanded ? "" : css.notExpanded}
          `}
     >
-      hi location
+      <div className={css.locations}>
+        {locationsList.map((l) => (
+          <div
+            key={l.id}
+            className={css.locationItem}
+            onClick={() => onLocationChange(l.city)}
+          >
+            <span className="material-symbols-rounded">location_on</span>
+            {`${l.city}, ${l.country}`}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

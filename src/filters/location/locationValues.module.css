@@ -22,3 +22,16 @@
         display: none;
     }
 }
+
+.locations {
+    padding: 1rem;
+    color: var(--grey31);
+}
+
+.locationItem {
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin: 2rem 0;
+}

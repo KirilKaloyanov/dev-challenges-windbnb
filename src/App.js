@@ -6,14 +6,18 @@ import "./App.css";
 function App() {
   const [data, setData] = useState([]);
   const [guests, setGuests] = useState(0);
-
-  console.log(guests);
-
+  const [location, setLocation] = useState("");
+  const [locationsList, setLocationsList] = useState([]);
 
   function getData() {
     fetch("stays.json")
       .then((data) => data.json())
-      .then((response) => console.log(response));
+      .then((response) => {
+        setData(response.map((item, i) => ({ id: i, ...item })));
+        setLocationsList(response
+          .map((item, i) => ({ id: i, city: item.city, country: item.country }))
+          .filter((b, i, arr) => i === arr.findIndex((c) => c.city === b.city)))
+      });
   }
 
   useEffect(() => {
@@ -22,12 +26,20 @@ function App() {
 
   return (
     <>
-      <Filter 
+      <Filter
         guests={guests}
+        location={location}
+        locationsList={locationsList}
         onGuestsChange={setGuests}
+        onLocationChange={setLocation}
       />
       <img src={logo} alt="Windbnb logo" />
-      {/* <button onClick={() => onGuestsChange({adults: 1, children: 0})}>Calc</button> */}
+      {data
+        .filter(a => a.city === location)
+        .filter((a) => a.maxGuests - guests >= 0)
+        .map((a) => (
+          <div key={a.id}>{a.maxGuests} {a.city}</div>
+        ))}
     </>
   );
 }

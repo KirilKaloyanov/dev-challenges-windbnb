@@ -5,10 +5,15 @@ import LocationValues from "./location/locationValues.js";
 import GuestsValues from "./guests/guestsValues.js";
 import css from "./filter.module.css";
 
-export default function Filter({ onGuestsChange, guests }) {
+export default function Filter({
+  guests,
+  location,
+  locationsList,
+  onGuestsChange,
+  onLocationChange,
+}) {
   const [expanded, setExpanded] = useState(false);
   const [activeFilter, setActiveFilter] = useState("location");
-
 
   return (
     <>
@@ -20,20 +25,26 @@ export default function Filter({ onGuestsChange, guests }) {
           <div className={`${css.filters} ${expanded && css.expandedFilters}`}>
             <Location
               expanded={expanded}
-              activeFilter={activeFilter}  
+              activeFilter={activeFilter}
               onSelect={() => setActiveFilter("location")}
+              location={location}
             />
             <Guests
               expanded={expanded}
-              activeFilter={activeFilter}  
+              activeFilter={activeFilter}
               onSelect={() => setActiveFilter("guests")}
-              guests={guests} 
-              />
+              guests={guests}
+            />
           </div>
-          <LocationValues expanded={expanded} activeFilter={activeFilter} />
-          <GuestsValues 
-            expanded={expanded} 
-            activeFilter={activeFilter} 
+          <LocationValues
+            expanded={expanded}
+            activeFilter={activeFilter}
+            locationsList={locationsList}
+            onLocationChange={onLocationChange}
+          />
+          <GuestsValues
+            expanded={expanded}
+            activeFilter={activeFilter}
             guests={guests}
             onGuestsChange={onGuestsChange}
           />
@@ -46,7 +57,9 @@ export default function Filter({ onGuestsChange, guests }) {
             )}
             {!expanded && (
               <div className={css.search}>
-                <span className={`material-symbols-rounded ${css.searchIcon}`}>search</span>
+                <span className={`material-symbols-rounded ${css.searchIcon}`}>
+                  search
+                </span>
               </div>
             )}
           </span>

@@ -10,8 +10,20 @@
   font-weight: 700;
 }
 
+@media screen and (min-width: 800px) {
+  .heading {
+    font-size: 1.8rem;
+  }
+}
+
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
+}
+
+@media screen and (min-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

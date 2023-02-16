@@ -1,10 +1,7 @@
 .container {
     cursor: pointer;
-    position: absolute;
-    top: 5rem;
-    margin: auto;
-    right: 0;
-    left: 0;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 30rem;
     background-color: white;
     font-family: 'Mulish', sans-serif;
@@ -15,14 +12,14 @@
 
 @media screen and (min-width: 800px) {
     .container {
-        top: 2rem;
-        right: 5rem;
-        left: initial;
+        margin-right: initial;
     }
 }
 
 .expandedContainer {
     cursor: default;
+    position: absolute;
+    z-index: 2;
     padding: 1rem;
     top: 0;
     right: 0;
@@ -131,14 +128,14 @@
 
 .background {
     position: absolute;
-    z-index: -1;
+    z-index: 1;
 }
 
 .expandedBackground {
     top: 0;
-    bottom:0;
     right: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.04);
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
 
 }

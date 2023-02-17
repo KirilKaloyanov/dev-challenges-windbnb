@@ -10,18 +10,6 @@ function App() {
   const [location, setLocation] = useState(null);
   const [locationsList, setLocationsList] = useState([]);
 
-  function getData() {
-    fetch("stays.json")
-      .then((data) => data.json())
-      .then((response) => {
-        setLocationsList(filterLocations(response));
-        // const accommodations = assignIds(response);
-        // const accommodationsByCapacity = filterByCapacity(accommodations);
-        // const accommodationsByLocation = filterByLocation(accommodationsByCapacity);
-        setData(assignIds(response));
-      });
-  }
-
   function assignIds(arr) {
     return arr.map((item, index) => ({ id: index, ...item }));
   }
@@ -33,8 +21,15 @@ function App() {
   }
 
   useEffect(() => {
-    getData();
-  }, []);
+    fetch("stays.json")
+      .then((data) => data.json())
+      .then((response) => {
+        setLocationsList(filterLocations(response));
+        setData(
+          assignIds(response.filter(filterByLocation).filter(filterByCapacity))
+        );
+      });
+  }, [guests, location]);
 
   function filterByLocation(item) {
     if (!location) return true;
@@ -48,7 +43,9 @@ function App() {
   return (
     <>
       <div className="header">
+        
         <img className="logo" src={logo} alt="Windbnb logo" />
+        
         <Filter
           guests={guests}
           location={location}
@@ -56,18 +53,18 @@ function App() {
           onGuestsChange={setGuests}
           onLocationChange={setLocation}
         />
+
       </div>
-      <div>
-      <h2 className="heading">Stays in Finland</h2>
-      <span>{}</span>
+
+      <div className="title">
+        <span className="heading">Stays in Finland</span>
+        <span className="stays">{data.length}+ stays</span>
       </div>
+
       <div className="grid">
-        {data
-          .filter(filterByLocation)
-          .filter(filterByCapacity)
-          .map((a) => (
-            <Card key={a.id} item={a} />
-          ))}
+        {data.map((a) => (
+          <Card key={a.id} item={a} />
+        ))}
       </div>
 
       <footer>

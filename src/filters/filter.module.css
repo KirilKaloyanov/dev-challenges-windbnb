@@ -18,7 +18,7 @@
 
 .expandedContainer {
     cursor: default;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     padding: 1rem;
     top: 0;
@@ -27,6 +27,21 @@
     height: max-content;
     width: calc(100% - 2rem);
     max-width: 100%;
+}
+
+.controls {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+    .controls {
+        display: none;
+    }
 }
 
 .grid {

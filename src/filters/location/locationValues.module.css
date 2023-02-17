@@ -6,6 +6,7 @@
 
 .visible {
     display: block;
+    padding: 0.84rem 0;
 }
 
 .hidden {

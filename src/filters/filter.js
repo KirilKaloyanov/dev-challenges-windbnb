@@ -21,6 +21,17 @@ export default function Filter({
         className={`${css.container} ${expanded && css.expandedContainer}`}
         onClick={() => setExpanded(true)}
       >
+        {expanded && (
+          <div className={css.controls}>
+            <div>Edit your search</div>
+            <span
+              className="material-symbols-rounded"
+              onClick={(e) => {e.stopPropagation(); setExpanded(false)}}
+            >
+              <strong>close</strong>
+            </span>
+          </div>
+        )}
         <div className={`${css.grid} ${expanded && css.expandedGrid}`}>
           <div className={`${css.filters} ${expanded && css.expandedFilters}`}>
             <Location
@@ -50,11 +61,13 @@ export default function Filter({
           />
           <span className={css.searchField}>
             {expanded && (
-              <div className={css.searchButton} onClick={(e) => {
+              <div
+                className={css.searchButton}
+                onClick={(e) => {
                   e.stopPropagation();
-                  setExpanded(false)
-                }
-              }>
+                  setExpanded(false);
+                }}
+              >
                 <span className="material-symbols-rounded">search</span>
                 <span>Search</span>
               </div>

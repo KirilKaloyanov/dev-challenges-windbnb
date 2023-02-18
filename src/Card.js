@@ -8,10 +8,10 @@ export default function Card({ item }) {
       </div>
       <div className={css.description}>
         <div className={css.info}>
-          {item.superHost && <div className={css.superHost}>super host</div>}
+          {item.superHost && <div className={css.superHost}>super&nbsp;host</div>}
           <span className={css.greyText}>
-            {item.type} &nbsp; &nbsp;
-            {item.beds && <span>{item.beds} beds</span>}
+            {item.type} &nbsp;&nbsp; 
+            {item.beds && <span>{item.beds}&nbsp;beds</span>}
           </span>
         </div>
         <span className={css.rating}>

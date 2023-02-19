@@ -10,8 +10,9 @@ export default function Card({ item }) {
         <div className={css.info}>
           {item.superHost && <div className={css.superHost}>super&nbsp;host</div>}
           <span className={css.greyText}>
-            {item.type} &nbsp;&nbsp; 
-            {item.beds && <span>{item.beds}&nbsp;beds</span>}
+            {item.type}  
+            {item.beds && item.beds < 2 && <span> . {item.beds}&nbsp;bed</span>}
+            {item.beds && item.beds > 1 && <span> . {item.beds}&nbsp;beds</span>}
           </span>
         </div>
         <span className={css.rating}>
